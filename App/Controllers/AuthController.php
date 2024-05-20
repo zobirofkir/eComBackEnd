@@ -17,7 +17,7 @@ class AuthController
         if ($_SERVER["REQUEST_METHOD"] !== "POST")
         {
             http_response_code(405); // Method Not Allowed
-            echo json_encode(["status" => false, "message" => "Method not allowed"]);
+            echo json_encode(false);
             return;
         }
 
@@ -38,7 +38,7 @@ class AuthController
         else
         {
             http_response_code(400); // Bad Request
-            echo json_encode(["status" => false, "message" => "Invalid input"]);
+            echo json_encode(false);
         }
     }
 
@@ -79,5 +79,5 @@ class AuthController
         }
         $result = $this->auth->logout();       
         echo json_encode($result);
-}
+    }
 }

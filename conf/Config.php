@@ -5,6 +5,8 @@ use Dotenv\Dotenv;
 
 class Config 
 {
+    protected $secretKey = 'your_secret_key';
+
     public function payload($user)
     {
         $dotenv = Dotenv::createImmutable(__DIR__ . '/..');

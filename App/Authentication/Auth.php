@@ -6,21 +6,18 @@ use config\Connection;
 use Firebase\JWT\JWT;
 use Exception;
 
-class Auth
+class Auth extends Config
 {
     private $username;
     private $email;
     private $password;
-    private $payloadAuth;
 
     private $db;
-    private $secretKey = 'your_secret_key'; // Change this to your secret key
 
     public function __construct()
     {
         $connection = new Connection();
         $this->db = $connection->getInstance();
-        $this->payloadAuth = new Config();
     }
 
 
@@ -36,7 +33,6 @@ class Auth
         $this->username = $username;
         $this->password = $password;
     }
-
 
     public function register()
     {
