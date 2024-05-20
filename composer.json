@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "config\\": "conf/",
+            "Controller\\": "App/Controllers/",
+            "Model\\": "App/Models/",
+            "Route\\": "routes/",
+            "database\\": "migrations/databases/",
+            "Auth\\": "App/Authentication/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
