@@ -8,18 +8,18 @@ use Exception;
 
 class Auth extends Config
 {
-    private $username;
-    private $email;
-    private $password;
-
-    private $db;
+    protected $table = "users";
+    
+    protected $username;
+    protected $email;
+    protected $password;
+    protected $db;
 
     public function __construct()
     {
         $connection = new Connection();
         $this->db = $connection->getInstance();
     }
-
 
     public function setRegisterCredentials($username, $email, $password)
     {
@@ -36,7 +36,7 @@ class Auth extends Config
 
     public function register()
     {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE username = :username OR email = :email");
+        $stmt = $this->db->prepare("SELECT * FROM $this->table WHERE username = :username OR email = :email");
         $stmt->bindParam(':username', $this->username);
         $stmt->bindParam(':email', $this->email);
         $stmt->execute();
@@ -48,21 +48,20 @@ class Auth extends Config
 
         $hashedPassword = password_hash($this->password, PASSWORD_BCRYPT);
 
-        $stmt = $this->db->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
+        $stmt = $this->db->prepare("INSERT INTO $this->table (username, email, password) VALUES (:username, :email, :password)");
         $stmt->bindParam(':username', $this->username);
         $stmt->bindParam(':email', $this->email);
         $stmt->bindParam(':password', $hashedPassword);
 
         if ($stmt->execute()) {
             return true;
-        } else {
-            return false;
-        }
+        } 
+        return false;
     }
 
     public function login()
     {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE username = :username");
+        $stmt = $this->db->prepare("SELECT * FROM $this->table WHERE username = :username");
         $stmt->bindParam(':username', $this->username);
         $stmt->execute();
 
@@ -74,9 +73,8 @@ class Auth extends Config
             $jwt = JWT::encode($payload, $this->secretKey, 'HS256');
 
             return [$jwt];
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function logout()
