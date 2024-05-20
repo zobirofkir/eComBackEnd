@@ -38,6 +38,7 @@ class ComposerStaticInitf1cc906d741d9888a5acfd7cf9881394
         'M' => 
         array (
             'Model\\' => 6,
+            'Middleware\\' => 11,
         ),
         'G' => 
         array (
@@ -93,6 +94,10 @@ class ComposerStaticInitf1cc906d741d9888a5acfd7cf9881394
         'Model\\' => 
         array (
             0 => __DIR__ . '/../..' . '/App/Models',
+        ),
+        'Middleware\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Middleware/Middleware',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (

@@ -2,26 +2,21 @@
 namespace Model;
 
 use Auth\Auth;
-use config\Config;
-use config\Connection;
-use Firebase\JWT\JWT;
-use Exception;
 
 class User extends Auth
 {
-
-    public function register()
+    public function register() 
     {
-        $this->register();
+        return parent::authRegister();
     }
 
-    public function login()
+    public function login() 
     {
-        $this->login();
+        return parent::authLogin();
     }
 
     public function logout()
     {
-        $this->logout();
+        return parent::authLogout();
     }
 }

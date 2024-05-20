@@ -2,6 +2,7 @@
 namespace Controller;
 
 use Auth\Auth;
+use Model\User;
 
 class AuthController 
 {
@@ -9,7 +10,7 @@ class AuthController
 
     public function __construct()
     {
-        $this->auth = new Auth();
+        $this->auth = new User();
     }
 
     public function register()
@@ -30,7 +31,7 @@ class AuthController
             $password = $data["password"];
 
             $this->auth->setRegisterCredentials($username, $email, $password);
-            $result = $this->auth->register();
+            $result = $this->auth->register($username, $email, $password);
             
             http_response_code($result['status'] ? 200 : 400);
             echo json_encode($result);
@@ -59,7 +60,7 @@ class AuthController
             $password = $data["password"];
 
             $this->auth->setLoginCredentials($username, $password);
-            $result = $this->auth->login();
+            $result = $this->auth->login($username, $password);
             echo json_encode($result);
         }
         else

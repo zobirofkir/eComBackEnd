@@ -6,7 +6,8 @@
             "Model\\": "App/Models/",
             "Route\\": "routes/",
             "database\\": "migrations/databases/",
-            "Auth\\": "App/Authentication/"
+            "Auth\\": "App/Authentication/",
+            "Middleware\\":"Middleware/Middleware/"
         }
     },
     "require": {

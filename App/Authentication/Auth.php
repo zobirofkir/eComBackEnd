@@ -34,7 +34,7 @@ class Auth extends Config
         $this->password = $password;
     }
 
-    public function register()
+    public function authRegister()
     {
         $stmt = $this->db->prepare("SELECT * FROM $this->table WHERE username = :username OR email = :email");
         $stmt->bindParam(':username', $this->username);
@@ -59,7 +59,7 @@ class Auth extends Config
         return false;
     }
 
-    public function login()
+    public function authLogin()
     {
         $stmt = $this->db->prepare("SELECT * FROM $this->table WHERE username = :username");
         $stmt->bindParam(':username', $this->username);
@@ -77,7 +77,7 @@ class Auth extends Config
         return false;
     }
 
-    public function logout()
+    public function authLogout()
     {
         return true;
     }
