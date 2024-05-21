@@ -4,6 +4,7 @@ namespace Auth;
 use config\Config;
 use config\Connection;
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use Exception;
 
 class Auth extends Config
@@ -14,6 +15,7 @@ class Auth extends Config
     protected $email;
     protected $password;
     protected $db;
+    protected $secretKey = 'your_secret_key'; // Add this line to define the secret key
 
     public function __construct()
     {
@@ -75,6 +77,16 @@ class Auth extends Config
             return [$jwt];
         }
         return false;
+    }
+
+    public function verifyToken($token)
+    {
+        try {
+            $decoded = JWT::decode($token, new Key($this->secretKey, 'HS256'));
+            return (array) $decoded;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     public function authLogout()

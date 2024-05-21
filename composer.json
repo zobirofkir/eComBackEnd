@@ -7,7 +7,8 @@
             "Route\\": "routes/",
             "database\\": "migrations/databases/",
             "Auth\\": "App/Authentication/",
-            "Middleware\\":"Middleware/Middleware/"
+            "QueryBuilder\\":"QueryBuilder/",
+            "Middleware\\":"App/Middleware/"
         }
     },
     "require": {

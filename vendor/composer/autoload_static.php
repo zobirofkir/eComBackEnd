@@ -31,6 +31,10 @@ class ComposerStaticInitf1cc906d741d9888a5acfd7cf9881394
         array (
             'Route\\' => 6,
         ),
+        'Q' => 
+        array (
+            'QueryBuilder\\' => 13,
+        ),
         'P' => 
         array (
             'PhpOption\\' => 10,
@@ -87,6 +91,10 @@ class ComposerStaticInitf1cc906d741d9888a5acfd7cf9881394
         array (
             0 => __DIR__ . '/../..' . '/routes',
         ),
+        'QueryBuilder\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/QueryBuilder',
+        ),
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
@@ -97,7 +105,7 @@ class ComposerStaticInitf1cc906d741d9888a5acfd7cf9881394
         ),
         'Middleware\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Middleware/Middleware',
+            0 => __DIR__ . '/../..' . '/App/Middleware',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (
