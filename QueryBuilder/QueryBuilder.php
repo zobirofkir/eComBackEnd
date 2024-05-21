@@ -39,7 +39,7 @@ class QueryBuilder
         $stmt->execute($values);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    
     public function put($table, $data, $conditions)
     {
         $fields = array_keys($data);

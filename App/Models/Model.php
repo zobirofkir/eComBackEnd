@@ -3,13 +3,22 @@ namespace Model;
 
 use QueryBuilder\QueryBuilder;
 
-class Model extends QueryBuilder
+class Model 
 {
-    private $table;
-    private $data;
+    private $query;
 
-    public function store()
+    public function __construct()
     {
-        $this->insert($this->table, $this->data);
+        $this->query = new QueryBuilder();
+    }
+    
+    public function store($table, $data)
+    {
+        return $this->query->insert($table, $data);
+    }
+
+    public function all($table)
+    {
+        return $this->query->get($table);
     }
 }

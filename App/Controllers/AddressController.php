@@ -33,15 +33,23 @@ class AddressController extends Controller
             $postal_code = htmlspecialchars($data["postal_code"]);
             $country = htmlspecialchars($data["country"]);
 
-            $result = $this->model->storeAddress($address_line1, $address_line2, $city, $state, $postal_code, $country);
-            
-            http_response_code($result['status'] ? 200 : 400);
+            $result = $this->model->storeAddress($address_line1, $address_line2, $city, $state, $postal_code, $country);            
             echo json_encode($result);
         }
         else
         {
             http_response_code(400);
             echo json_encode(false);
+        }
+    }
+
+    public function all()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "GET")
+        {
+            $results = $this->model->get();
+            echo json_encode($results);
+            return;
         }
     }
 }

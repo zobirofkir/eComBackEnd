@@ -12,6 +12,13 @@ class AuthController
         $this->auth = new User();
     }
 
+    public function index()
+    {
+        $response = ["success"=>true, ["success"=>"HOME-PAGE"]];
+        echo json_encode($response);
+        return ;
+    }
+
     public function register()
     {
         if ($_SERVER["REQUEST_METHOD"] !== "POST") {

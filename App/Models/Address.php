@@ -19,4 +19,9 @@ class Address extends Model
         ];
         return $this->store($this->table, $fields);
     }
+
+    public function get()
+    {
+        return $this->all($this->table);
+    }
 }
