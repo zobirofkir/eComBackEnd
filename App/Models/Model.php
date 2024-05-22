@@ -6,6 +6,7 @@ use QueryBuilder\QueryBuilder;
 class Model 
 {
     private $query;
+    protected $condition;
 
     public function __construct()
     {
@@ -20,5 +21,15 @@ class Model
     public function all($table)
     {
         return $this->query->get($table);
+    }
+
+    public function update ($table, $data, $condition = [])
+    {
+        return $this->query->put($table, $data, $condition);
+    }
+
+    public function delete($table, $condition = [])
+    {
+        return $this->query->remove($table, $condition);
     }
 }

@@ -21,6 +21,16 @@ class Routes extends Main
                 {
                     $this->middleware->authenticated();
                     $this->add->all();
+                },
+
+                /*
+                    Authenticated Categorie
+                */
+
+                "/users/categories" => function ()
+                {
+                    $this->middleware->authenticated();
+                    $this->categorie->all();
                 }
             ],
 
@@ -37,6 +47,38 @@ class Routes extends Main
                     $this->middleware->authenticated(); 
                     $this->add->store();
                 },
+                /*
+                    Authenticated Categorie Routes
+                */
+                "/users/categories" => function()
+                {
+                    $this->middleware->authenticated();
+                    $this->categorie->store();
+                }
+            ],
+            "PUT" => [
+                "/users/addresses" => function()
+                {
+                    $this->middleware->authenticated();
+                    $this->add->update();
+                }, 
+
+                /*
+                    Authenticated Categorie Routes
+                */
+
+                "/users/categories" => function ()
+                {
+                    $this->middleware->authenticated();
+                    $this->categorie->update();
+                }
+            ],
+            "DELETE" => [
+                "/users/addresses" => function()
+                {
+                    $this->middleware->authenticated();
+                    $this->add->delete();
+                }
             ]
         ];
 

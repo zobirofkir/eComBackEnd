@@ -4,7 +4,7 @@ namespace database;
 use config\Connection;
 
 class Categories
-{
+{ 
     private $db;
 
     public function __construct()

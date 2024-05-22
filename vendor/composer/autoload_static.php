@@ -30,6 +30,7 @@ class ComposerStaticInitf1cc906d741d9888a5acfd7cf9881394
         'R' => 
         array (
             'Route\\' => 6,
+            'Request\\' => 8,
         ),
         'Q' => 
         array (
@@ -90,6 +91,10 @@ class ComposerStaticInitf1cc906d741d9888a5acfd7cf9881394
         'Route\\' => 
         array (
             0 => __DIR__ . '/../..' . '/routes',
+        ),
+        'Request\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App/Requests',
         ),
         'QueryBuilder\\' => 
         array (

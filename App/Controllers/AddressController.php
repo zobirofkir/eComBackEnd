@@ -6,50 +6,39 @@ use Model\Address;
 
 class AddressController extends Controller
 {
-    private $model;
-
-    public function __construct() 
-    {
-        $this->model = new Address();
-    }
-
     public function store()
     {
-        if ($_SERVER["REQUEST_METHOD"] !== "POST")
-        {
-            http_response_code(405); // Method Not Allowed
-            echo json_encode(false);
-            return;
-        }
+        /*
+            Call The Request Method From The Controller 
+        */
 
-        $data = json_decode(file_get_contents("php://input"), true);
-
-        if ($data && isset($data["address_line1"]) && isset($data["address_line2"]) && isset($data["city"]) && isset($data["state"]) && isset($data["postal_code"]) && isset($data["country"]))
-        {
-            $address_line1 = htmlspecialchars($data["address_line1"]);
-            $address_line2 = htmlspecialchars($data["address_line2"]);
-            $city = htmlspecialchars($data["city"]);
-            $state = htmlspecialchars($data["state"]);
-            $postal_code = htmlspecialchars($data["postal_code"]);
-            $country = htmlspecialchars($data["country"]);
-
-            $result = $this->model->storeAddress($address_line1, $address_line2, $city, $state, $postal_code, $country);            
-            echo json_encode($result);
-        }
-        else
-        {
-            http_response_code(400);
-            echo json_encode(false);
-        }
+        $this->create();
+        return $this->service->storeAddress($this->data);
     }
-
+    
     public function all()
     {
-        if ($_SERVER["REQUEST_METHOD"] === "GET")
-        {
-            $results = $this->model->get();
-            echo json_encode($results);
-            return;
-        }
+        /*
+            Call The Request Method From The Controller 
+        */
+        $this->get();
+
+        $results = $this->model->get();
+        echo json_encode($results);
+        return;
+
+    }
+
+    public function update()
+    {
+        $this->put();
+        return $this->service->updateAddress($this->data);
+    }
+
+    public function delete()
+    {
+    $this->remove();
+    $id = intval($this->data["id"]);
+    return $this->model->remove($id);
     }
 }

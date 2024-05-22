@@ -25,7 +25,7 @@ class QueryBuilder
 
     public function get($table, $conditions = [])
     {
-        $sql = "SELECT * FROM $table";
+        $sql = "SELECT * FROM $table"; 
         $values = [];
 
         if (!empty($conditions)) {
@@ -55,7 +55,7 @@ class QueryBuilder
         return $stmt->execute($values);
     }
 
-    public function delete($table, $conditions)
+    public function remove($table, $conditions)
     {
         $fields = array_keys($conditions);
         $placeholders = implode(' = ? AND ', $fields) . ' = ?';
@@ -65,5 +65,4 @@ class QueryBuilder
         $values = array_values($conditions);
         return $stmt->execute($values);
     }
-
 }

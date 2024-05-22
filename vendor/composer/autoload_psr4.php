@@ -12,6 +12,7 @@ return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'Route\\' => array($baseDir . '/routes'),
+    'Request\\' => array($baseDir . '/App/Requests'),
     'QueryBuilder\\' => array($baseDir . '/QueryBuilder'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
     'Model\\' => array($baseDir . '/App/Models'),

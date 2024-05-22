@@ -3,6 +3,7 @@ namespace Route;
 
 use Controller\AddressController;
 use Controller\AuthController;
+use Controller\CategorieController;
 use Middleware\Middleware;
 
 class Main 
@@ -11,12 +12,14 @@ class Main
     protected $controller;
     protected $add;
     protected $middleware;
+    protected $categorie;
 
     public function __construct()
     {
         $this->controller = new AuthController();
         $this->add = new AddressController();
         $this->middleware = new Middleware();
+        $this->categorie = new CategorieController();
     }
 
     public function handleRoutes()
